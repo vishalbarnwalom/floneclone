@@ -7,7 +7,8 @@
       "image2": "po2.jpg",
       "tags": ["-40%", "New"],
       "price": "€22.95",
-      "oldPrice": "€30.00"
+      "oldPrice": "€30.00",
+      "description": "Experience ultimate warmth and luxury with our Fur Coat. Crafted from premium materials, this coat offers a timeless style and exceptional comfort. Perfect for cold weather, it features a soft lining and a classic silhouette, making it a must-have for your winter wardrobe."
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "image2": "po4.jpg",
       "tags": ["New"],
       "price": "€19.95",
-      "oldPrice": "€25.00"
+      "oldPrice": "€25.00",
+      "description": "Stay stylish and protected from the elements with our Trench Coat. Designed with a modern fit and durable fabric, this coat is ideal for both casual and formal occasions. Its lightweight construction ensures comfort and versatility throughout the seasons."
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "image2": "po10.jpg",
       "tags": ["New"],
       "price": "€15.95",
-      "oldPrice": "€20.00"
+      "oldPrice": "€20.00",
+      "description": "Our Classic Shirt is a wardrobe essential, offering a crisp and clean look for any occasion. Made from high-quality cotton, it provides breathability and comfort. The tailored fit and timeless design make it suitable for both work and leisure."
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "image2": "po12.jpg",
       "tags": ["-10%"],
       "price": "€18.95",
-      "oldPrice": "€21.00"
+      "oldPrice": "€21.00",
+      "description": "Discover the perfect blend of style and durability with our Denim Jeans. Featuring a classic cut and premium denim fabric, these jeans offer all-day comfort and a flattering fit. Ideal for everyday wear, they pair effortlessly with any top."
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "image2": "po14.jpg",
       "tags": ["Hot"],
       "price": "€24.95",
-      "oldPrice": "€29.00"
+      "oldPrice": "€29.00",
+      "description": "Embrace the season in our Summer Dress, designed for comfort and style. The lightweight fabric and flowy silhouette keep you cool on warm days. With its vibrant color and elegant details, this dress is perfect for any summer outing."
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "image2": "po16.jpg",
       "tags": ["Best"],
       "price": "€34.95",
-      "oldPrice": "€40.00"
+      "oldPrice": "€40.00",
+      "description": "Step out in confidence with our Leather Boots. Crafted from genuine leather, these boots offer durability and a sleek look. The cushioned insole and sturdy sole provide comfort and support, making them ideal for all-day wear."
     },
     {
       "id": 7,
@@ -61,7 +67,8 @@
       "image2": "po6.jpg",
       "tags": ["Best"],
       "price": "€17.95",
-      "oldPrice": "€22.00"
+      "oldPrice": "€22.00",
+      "description": "Stay warm and stylish with our Wool Jacket. Made from soft, high-quality wool, this jacket features a modern cut and classic design. It’s perfect for layering during chilly days and adds a touch of sophistication to any outfit."
     },
     {
       "id": 8,
@@ -70,7 +77,8 @@
       "image2": "po8.jpg",
       "tags": ["-30%", "Hot"],
       "price": "€22.95",
-      "oldPrice": "€25.50"
+      "oldPrice": "€25.50",
+      "description": "Elevate your look with our Brown Blazer. This versatile piece is tailored for a flattering fit and crafted from premium fabric. Whether for business or casual events, it offers a polished appearance and lasting comfort."
     }
   ],
   "Best Sellers": [
@@ -81,7 +89,8 @@
       "image2": "po10.jpg",
       "tags": ["New"],
       "price": "€15.95",
-      "oldPrice": "€20.00"
+      "oldPrice": "€20.00",
+      "description": "Our Classic Shirt is a timeless staple, designed for versatility and comfort. The soft cotton fabric ensures breathability, while the tailored fit provides a sharp look. Perfect for both office and casual settings."
     },
     {
       "id": 10,
@@ -90,7 +99,8 @@
       "image2": "po12.jpg",
       "tags": ["-10%"],
       "price": "€18.95",
-      "oldPrice": "€21.00"
+      "oldPrice": "€21.00",
+      "description": "Enjoy everyday comfort and style with our Denim Jeans. The premium denim material offers durability, while the classic fit ensures a flattering silhouette. Ideal for pairing with your favorite shirts and jackets."
     },
     {
       "id": 11,
@@ -99,7 +109,8 @@
       "image2": "po14.jpg",
       "tags": ["Hot"],
       "price": "€24.95",
-      "oldPrice": "€29.00"
+      "oldPrice": "€29.00",
+      "description": "Step into summer with our breezy Summer Dress. The lightweight, breathable fabric and relaxed fit make it perfect for warm days. Its stylish design and vibrant color add a cheerful touch to your wardrobe."
     },
     {
       "id": 12,
@@ -108,7 +119,8 @@
       "image2": "po16.jpg",
       "tags": ["Best"],
       "price": "€34.95",
-      "oldPrice": "€40.00"
+      "oldPrice": "€40.00",
+      "description": "Our Leather Boots combine durability and style. Made from genuine leather, they feature a comfortable insole and a sturdy sole for all-day support. A must-have for any fashion-forward wardrobe."
     },
     {
       "id": 13,
@@ -117,7 +129,8 @@
       "image2": "po6.jpg",
       "tags": ["Best"],
       "price": "€17.95",
-      "oldPrice": "€22.00"
+      "oldPrice": "€22.00",
+      "description": "This Wool Jacket is crafted for warmth and elegance. The soft wool blend and tailored fit make it a great choice for layering. Its classic style ensures it pairs well with any outfit."
     },
     {
       "id": 14,
@@ -126,7 +139,8 @@
       "image2": "po8.jpg",
       "tags": ["-30%", "Hot"],
       "price": "€22.95",
-      "oldPrice": "€25.50"
+      "oldPrice": "€25.50",
+      "description": "Add sophistication to your look with our Brown Blazer. The premium fabric and expert tailoring provide a comfortable fit and a refined appearance, suitable for both work and social occasions."
     },
     {
       "id": 15,
@@ -135,7 +149,8 @@
       "image2": "po2.jpg",
       "tags": ["-40%", "New"],
       "price": "€22.95",
-      "oldPrice": "€30.00"
+      "oldPrice": "€30.00",
+      "description": "Wrap yourself in luxury with our Fur Coat. The plush material and elegant design offer both warmth and style, making it a standout piece for the colder months."
     }
   ],
   "Sale Items": [
@@ -146,7 +161,8 @@
       "image2": "po4.jpg",
       "tags": ["New"],
       "price": "€19.95",
-      "oldPrice": "€25.00"
+      "oldPrice": "€25.00",
+      "description": "Our Trench Coat is a classic outerwear piece, perfect for transitional weather. The water-resistant fabric and timeless design make it a reliable and stylish choice for any occasion."
     },
     {
       "id": 17,
@@ -155,7 +171,8 @@
       "image2": "po10.jpg",
       "tags": ["New"],
       "price": "€15.95",
-      "oldPrice": "€20.00"
+      "oldPrice": "€20.00",
+      "description": "Stay comfortable and stylish with our Classic Shirt. Its breathable cotton fabric and tailored fit make it suitable for all-day wear, whether at work or out with friends."
     },
     {
       "id": 18,
@@ -164,7 +181,8 @@
       "image2": "po12.jpg",
       "tags": ["-10%"],
       "price": "€18.95",
-      "oldPrice": "€21.00"
+      "oldPrice": "€21.00",
+      "description": "Our Denim Jeans are designed for everyday comfort and durability. The classic style and premium fabric ensure a great fit and long-lasting wear, making them a staple in any wardrobe."
     },
     {
       "id": 19,
@@ -173,7 +191,8 @@
       "image2": "po14.jpg",
       "tags": ["Hot"],
       "price": "€24.95",
-      "oldPrice": "€29.00"
+      "oldPrice": "€29.00",
+      "description": "Enjoy sunny days in our Summer Dress. The lightweight material and relaxed fit keep you cool and comfortable, while the stylish design adds a touch of elegance to your look."
     },
     {
       "id": 20,
@@ -182,7 +201,8 @@
       "image2": "po16.jpg",
       "tags": ["Best"],
       "price": "€34.95",
-      "oldPrice": "€40.00"
+      "oldPrice": "€40.00",
+      "description": "Step up your footwear game with our Leather Boots. The genuine leather construction and cushioned insole provide comfort and durability, making them perfect for any occasion."
     },
     {
       "id": 21,
@@ -191,7 +211,8 @@
       "image2": "po2.jpg",
       "tags": ["-40%", "New"],
       "price": "€22.95",
-      "oldPrice": "€30.00"
+      "oldPrice": "€30.00",
+      "description": "Stay cozy and chic with our Fur Coat. The luxurious material and classic cut make it a fashionable choice for winter, offering both warmth and elegance."
     }
   ]
 }
