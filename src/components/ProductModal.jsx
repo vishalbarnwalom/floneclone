@@ -9,7 +9,7 @@ export default function ProductModal({ product, onClose }) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center overflow-auto 
-                 bg-[rgba(255,255,255,0.2)] backdrop-blur-sm"
+                 + bg-[rgba(0,0,0,0.3)] backdrop-blur-sm"
     >
       <div className="bg-white w-full max-w-3xl rounded-lg shadow-xl relative my-8 animate-fadeIn">
         {/* Close Button */}
@@ -74,7 +74,7 @@ export default function ProductModal({ product, onClose }) {
                 <button className="px-3 py-1 text-lg">+</button>
               </div>
               <button className="bg-black text-white font-semibold px-5 py-2 text-sm uppercase">
-                Out of Stock
+                Add to Cart
               </button>
               <button className="text-gray-500 hover:text-black text-xl">
                 <FaHeart />

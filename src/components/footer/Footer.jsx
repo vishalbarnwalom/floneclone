@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo.png"
 
 export default function FooterP() {
   return (
@@ -7,7 +8,7 @@ export default function FooterP() {
 
         {/* Logo + Copyright */}
         <div>
-          <h2 className="text-2xl font-bold mb-2">Flone.</h2>
+          <h2 className="text-2xl font-bold mb-2"><img src={logo} alt="" /></h2>
           <p className="text-sm text-gray-600">© 2025 Flone.</p>
           <p className="text-sm text-gray-600">All Rights Reserved</p>
         </div>
@@ -16,10 +17,10 @@ export default function FooterP() {
         <div>
           <h3 className="text-sm font-bold mb-4 uppercase">About Us</h3>
           <ul className="space-y-2 text-sm text-gray-700">
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Store location</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Orders tracking</a></li>
+            <li><a href="#" className="hover:text-purple-700">About us</a></li>
+            <li><a href="#" className="hover:text-purple-700">Store location</a></li>
+            <li><a href="#" className="hover:text-purple-700">Contact</a></li>
+            <li><a href="#" className="hover:text-purple-700">Orders tracking</a></li>
           </ul>
         </div>
 
@@ -27,10 +28,10 @@ export default function FooterP() {
         <div>
           <h3 className="text-sm font-bold mb-4 uppercase">Useful Links</h3>
           <ul className="space-y-2 text-sm text-gray-700">
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Support Policy</a></li>
-            <li><a href="#">Size guide</a></li>
-            <li><a href="#">FAQs</a></li>
+            <li><a href="#" className="hover:text-purple-700">Returns</a></li>
+            <li><a href="#" className="hover:text-purple-700">Support Policy</a></li>
+            <li><a href="#" className="hover:text-purple-700">Size guide</a></li>
+            <li><a href="#" className="hover:text-purple-700">FAQs</a></li>
           </ul>
         </div>
 
@@ -38,10 +39,10 @@ export default function FooterP() {
         <div>
           <h3 className="text-sm font-bold mb-4 uppercase">Follow Us</h3>
           <ul className="space-y-2 text-sm text-gray-700">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Youtube</a></li>
+            <li><a href="#" className="hover:text-purple-700">Facebook</a></li>
+            <li><a href="#" className="hover:text-purple-700">Twitter</a></li>
+            <li><a href="#" className="hover:text-purple-700">Instagram</a></li>
+            <li><a href="#" className="hover:text-purple-700">Youtube</a></li>
           </ul>
         </div>
 

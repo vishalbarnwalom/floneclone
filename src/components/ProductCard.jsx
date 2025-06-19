@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { FaHeart, FaEye } from "react-icons/fa";
 import ProductModal from "./ProductModal";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const [hovered, setHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -12,6 +14,8 @@ export default function ProductCard({ product }) {
         className="relative group bg-white rounded overflow-hidden transition-all duration-300"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => navigate(`/product/${product.id}`)}
+        style={{ cursor: "pointer" }}
       >
         {/* Tag Badges */}
         <div className="absolute top-2 right-2 z-20 space-y-1">
@@ -50,6 +54,7 @@ export default function ProductCard({ product }) {
               hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
             style={{ backdropFilter: "blur(2px)", background: "rgba(0,0,0,0.3)" }}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Button 1 - Wishlist */}
             <button
@@ -61,14 +66,15 @@ export default function ProductCard({ product }) {
               <FaHeart size={16} />
             </button>
 
-            {/* Button 2 - Select Option */}
+            {/* Button 2 - Select Option (View) */}
             <button
               className={`w-3/5 h-12 flex items-center justify-center bg-purple-700 text-white text-sm font-semibold hover:bg-black transition-all duration-500 ${
                 hovered ? "translate-y-0 opacity-100 delay-150" : "translate-y-8 opacity-0 delay-0"
               }`}
               style={{ transitionProperty: "all", transitionDelay: hovered ? "150ms" : "0ms" }}
+              onClick={() => navigate(`/product/${product.id}`)}
             >
-              Select Option
+              View
             </button>
 
             {/* Button 3 - Eye Icon */}
