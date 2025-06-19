@@ -1,0 +1,197 @@
+{
+  "New Arrivals": [
+    {
+      "id": 1,
+      "title": "Fur Coat",
+      "image1": "po1.jpg",
+      "image2": "po2.jpg",
+      "tags": ["-40%", "New"],
+      "price": "€22.95",
+      "oldPrice": "€30.00"
+    },
+    {
+      "id": 2,
+      "title": "Trench Coat",
+      "image1": "po3.jpg",
+      "image2": "po4.jpg",
+      "tags": ["New"],
+      "price": "€19.95",
+      "oldPrice": "€25.00"
+    },
+    {
+      "id": 3,
+      "title": "Classic Shirt",
+      "image1": "po9.jpg",
+      "image2": "po10.jpg",
+      "tags": ["New"],
+      "price": "€15.95",
+      "oldPrice": "€20.00"
+    },
+    {
+      "id": 4,
+      "title": "Denim Jeans",
+      "image1": "po11.jpg",
+      "image2": "po12.jpg",
+      "tags": ["-10%"],
+      "price": "€18.95",
+      "oldPrice": "€21.00"
+    },
+    {
+      "id": 5,
+      "title": "Summer Dress",
+      "image1": "po13.jpg",
+      "image2": "po14.jpg",
+      "tags": ["Hot"],
+      "price": "€24.95",
+      "oldPrice": "€29.00"
+    },
+    {
+      "id": 6,
+      "title": "Leather Boots",
+      "image1": "po15.jpg",
+      "image2": "po16.jpg",
+      "tags": ["Best"],
+      "price": "€34.95",
+      "oldPrice": "€40.00"
+    },
+    {
+      "id": 7,
+      "title": "Wool Jacket",
+      "image1": "po5.jpg",
+      "image2": "po6.jpg",
+      "tags": ["Best"],
+      "price": "€17.95",
+      "oldPrice": "€22.00"
+    },
+    {
+      "id": 8,
+      "title": "Brown Blazer",
+      "image1": "po7.jpg",
+      "image2": "po8.jpg",
+      "tags": ["-30%", "Hot"],
+      "price": "€22.95",
+      "oldPrice": "€25.50"
+    }
+  ],
+  "Best Sellers": [
+    {
+      "id": 9,
+      "title": "Classic Shirt",
+      "image1": "po9.jpg",
+      "image2": "po10.jpg",
+      "tags": ["New"],
+      "price": "€15.95",
+      "oldPrice": "€20.00"
+    },
+    {
+      "id": 10,
+      "title": "Denim Jeans",
+      "image1": "po11.jpg",
+      "image2": "po12.jpg",
+      "tags": ["-10%"],
+      "price": "€18.95",
+      "oldPrice": "€21.00"
+    },
+    {
+      "id": 11,
+      "title": "Summer Dress",
+      "image1": "po13.jpg",
+      "image2": "po14.jpg",
+      "tags": ["Hot"],
+      "price": "€24.95",
+      "oldPrice": "€29.00"
+    },
+    {
+      "id": 12,
+      "title": "Leather Boots",
+      "image1": "po15.jpg",
+      "image2": "po16.jpg",
+      "tags": ["Best"],
+      "price": "€34.95",
+      "oldPrice": "€40.00"
+    },
+    {
+      "id": 13,
+      "title": "Wool Jacket",
+      "image1": "po5.jpg",
+      "image2": "po6.jpg",
+      "tags": ["Best"],
+      "price": "€17.95",
+      "oldPrice": "€22.00"
+    },
+    {
+      "id": 14,
+      "title": "Brown Blazer",
+      "image1": "po7.jpg",
+      "image2": "po8.jpg",
+      "tags": ["-30%", "Hot"],
+      "price": "€22.95",
+      "oldPrice": "€25.50"
+    },
+    {
+      "id": 15,
+      "title": "Fur Coat",
+      "image1": "po1.jpg",
+      "image2": "po2.jpg",
+      "tags": ["-40%", "New"],
+      "price": "€22.95",
+      "oldPrice": "€30.00"
+    }
+  ],
+  "Sale Items": [
+    {
+      "id": 16,
+      "title": "Trench Coat",
+      "image1": "po3.jpg",
+      "image2": "po4.jpg",
+      "tags": ["New"],
+      "price": "€19.95",
+      "oldPrice": "€25.00"
+    },
+    {
+      "id": 17,
+      "title": "Classic Shirt",
+      "image1": "po9.jpg",
+      "image2": "po10.jpg",
+      "tags": ["New"],
+      "price": "€15.95",
+      "oldPrice": "€20.00"
+    },
+    {
+      "id": 18,
+      "title": "Denim Jeans",
+      "image1": "po11.jpg",
+      "image2": "po12.jpg",
+      "tags": ["-10%"],
+      "price": "€18.95",
+      "oldPrice": "€21.00"
+    },
+    {
+      "id": 19,
+      "title": "Summer Dress",
+      "image1": "po13.jpg",
+      "image2": "po14.jpg",
+      "tags": ["Hot"],
+      "price": "€24.95",
+      "oldPrice": "€29.00"
+    },
+    {
+      "id": 20,
+      "title": "Leather Boots",
+      "image1": "po15.jpg",
+      "image2": "po16.jpg",
+      "tags": ["Best"],
+      "price": "€34.95",
+      "oldPrice": "€40.00"
+    },
+    {
+      "id": 21,
+      "title": "Fur Coat",
+      "image1": "po1.jpg",
+      "image2": "po2.jpg",
+      "tags": ["-40%", "New"],
+      "price": "€22.95",
+      "oldPrice": "€30.00"
+    }
+  ]
+}
