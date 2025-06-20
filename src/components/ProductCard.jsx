@@ -58,7 +58,7 @@ export default function ProductCard({ product }) {
           >
             {/* Button 1 - Wishlist */}
             <button
-              className={`w-1/5 h-12 flex items-center justify-center bg-purple-700 text-white hover:bg-black transition-all duration-500 ${
+              className={`w-1/5 h-12 flex items-center justify-center bg-[#a749ff] text-white hover:bg-black transition-all duration-500 ${
                 hovered ? "translate-y-0 opacity-100 delay-0" : "translate-y-8 opacity-0 delay-0"
               }`}
               style={{ transitionProperty: "all", transitionDelay: hovered ? "0ms" : "0ms" }}
@@ -68,7 +68,7 @@ export default function ProductCard({ product }) {
 
             {/* Button 2 - Select Option (View) */}
             <button
-              className={`w-3/5 h-12 flex items-center justify-center bg-purple-700 text-white text-sm font-semibold hover:bg-black transition-all duration-500 ${
+              className={`w-3/5 h-12 flex items-center justify-center bg-[#a749ff] text-white text-sm font-semibold hover:bg-black transition-all duration-500 ${
                 hovered ? "translate-y-0 opacity-100 delay-150" : "translate-y-8 opacity-0 delay-0"
               }`}
               style={{ transitionProperty: "all", transitionDelay: hovered ? "150ms" : "0ms" }}
@@ -79,7 +79,7 @@ export default function ProductCard({ product }) {
 
             {/* Button 3 - Eye Icon */}
             <button
-              className={`w-1/5 h-12 flex items-center justify-center bg-purple-700 text-white hover:bg-black transition-all duration-500 ${
+              className={`w-1/5 h-12 flex items-center justify-center bg-[#a749ff] text-white hover:bg-black transition-all duration-500 ${
                 hovered ? "translate-y-0 opacity-100 delay-300" : "translate-y-8 opacity-0 delay-0"
               }`}
               style={{ transitionProperty: "all", transitionDelay: hovered ? "300ms" : "0ms" }}

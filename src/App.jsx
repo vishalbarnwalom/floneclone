@@ -7,6 +7,7 @@ import FeatureBanner from './components/Banner/Banner'
 import DailyDeals from './components/DailyDeals'
 import FooterP from './components/footer/Footer'
 import ProductPage from './components/ProductPage'
+import LoginRegister from './pages/LoginRegister'
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           </>
         } />
         <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/register" element={<LoginRegister />} />
+        <Route path="/account" element={<LoginRegister />} />
       </Routes>
       <FooterP/>
     </>
