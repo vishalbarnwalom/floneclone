@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { FaHeart, FaRandom } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 
 export default function ProductModal({ product, onClose }) {
   const [selectedImage, setSelectedImage] = useState(product?.image1 || "");
+  const { dispatch } = useCart();
+  const { showToast } = useToast();
 
   if (!product) return null;
 
@@ -49,8 +53,10 @@ export default function ProductModal({ product, onClose }) {
 
               <button
                 className="slide-btn bg-transparent border border-black text-black px-8 py-3 text-lg uppercase tracking-wider font-semibold rounded relative overflow-hidden transition-colors duration-300"
-                disabled
-                style={{ cursor: "not-allowed" }}
+                onClick={() => {
+                  dispatch({ type: "ADD_ITEM", payload: product });
+                  showToast("Product added to cart");
+                }}
               >
                 ADD TO CART
                 <style jsx>{`

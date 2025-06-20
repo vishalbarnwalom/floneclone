@@ -8,10 +8,11 @@ import DailyDeals from './components/DailyDeals'
 import FooterP from './components/footer/Footer'
 import ProductPage from './components/ProductPage'
 import LoginRegister from './pages/LoginRegister'
+import { ToastProvider } from './context/ToastContext.jsx';
 
 function App() {
   return (
-    <>
+    <ToastProvider>
       <Header/>
       <Routes>
         <Route path="/" element={
@@ -26,7 +27,7 @@ function App() {
         <Route path="/account" element={<LoginRegister />} />
       </Routes>
       <FooterP/>
-    </>
+    </ToastProvider>
   )
 }
 

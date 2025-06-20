@@ -8,8 +8,12 @@ import {
   FiMenu,
 } from "react-icons/fi";
 import SearchBar from "./SearchBar";
+import { useCart } from "../../context/CartContext";
+import CartDrawer from "../CartDrawer";
 
 const HeaderIcons = ({ setMenuOpen }) => {
+  const { state, dispatch } = useCart();
+  const cartCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
   const [showSearch, setShowSearch] = useState(false);
 
   return (
@@ -96,12 +100,18 @@ const HeaderIcons = ({ setMenuOpen }) => {
         </div>
       ))}
       {/* Cart Icon */}
-      <a href="/cart" className="relative">
-        <FiShoppingCart className="cursor-pointer" />
-        <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
-          0
-        </span>
-      </a>
+      <div className="relative">
+        <FiShoppingCart
+          className="cursor-pointer"
+          onClick={() => dispatch({ type: "TOGGLE_DRAWER" })}
+        />
+        {cartCount > 0 && (
+          <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+            {cartCount}
+          </span>
+        )}
+      </div>
+      <CartDrawer />
       {/* Mobile menu icon */}
       <div className="lg:hidden ml-2">
         <button onClick={() => setMenuOpen(true)}>

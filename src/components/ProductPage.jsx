@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import productsJson from "../data/products.json";
 import ProductTabs from "./ProductTab";
 import RelatedProducts from "./RelatedProducts";
+import { useCart } from "../context/CartContext";
+import { useToast } from "../context/ToastContext"; // Optional toast
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -12,10 +14,16 @@ export default function ProductPage() {
 
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
-  if (!product) return <div className="p-10 text-center text-xl">Product not found.</div>;
+  const { dispatch } = useCart();
+  const { showToast } = useToast(); // Optional toast
+
+  if (!product)
+    return (
+      <div className="p-10 text-center text-xl">Product not found.</div>
+    );
 
   const getImage = (img) => {
-    if (!img) return '';
+    if (!img) return "";
     try {
       return new URL(`../assets/productimg/${img}`, import.meta.url).href;
     } catch {
@@ -36,7 +44,7 @@ export default function ProductPage() {
           </div>
 
           {/* Main Image */}
-          <div className="w-full bg-white flex items-center justify-center  p-4">
+          <div className="w-full bg-white flex items-center justify-center p-4">
             <img
               src={getImage(selectedImage)}
               alt={product.title}
@@ -111,22 +119,41 @@ export default function ProductPage() {
               <span className="px-6 py-2 font-medium">1</span>
               <button className="px-4 py-2 hover:bg-gray-200">+</button>
             </div>
-            <button className="bg-black text-white text-lg px-8 py-3 uppercase rounded hover:bg-gray-800">
+
+            {/* ✅ Add to Cart Button */}
+            <button
+              onClick={() => {
+                const finalProduct = {
+                  ...product,
+                  image1: getImage(product.image1),
+                };
+                dispatch({ type: "ADD_ITEM", payload: finalProduct });
+                dispatch({ type: "OPEN_DRAWER" });
+                showToast && showToast("Product added to cart!");
+              }}
+              className="bg-black text-white text-lg px-8 py-3 uppercase rounded hover:bg-gray-800"
+            >
               Add to Cart
             </button>
           </div>
 
           {/* Meta Info */}
           <div className="text-sm text-gray-600 space-y-1">
-            <p><strong>Categories:</strong> fashion, men</p>
-            <p><strong>Tags:</strong> hoodie, jacket, brown, full sleeve</p>
+            <p>
+              <strong>Categories:</strong> fashion, men
+            </p>
+            <p>
+              <strong>Tags:</strong> hoodie, jacket, brown, full sleeve
+            </p>
           </div>
         </div>
       </div>
+
       {/* Product Tabs Section */}
       <ProductTabs />
-      <RelatedProducts/>
-      
+
+      {/* Related Products Section */}
+      <RelatedProducts />
     </>
   );
 }
