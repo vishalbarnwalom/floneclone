@@ -3,40 +3,49 @@ import React, { createContext, useContext, useReducer } from "react";
 const CartContext = createContext();
 
 const initialState = {
-  items: [],
+  items: JSON.parse(localStorage.getItem("cartItems")) || [],
   isDrawerOpen: false,
 };
 
 function cartReducer(state, action) {
+  let updatedItems;
+
   switch (action.type) {
     case "ADD_ITEM": {
-    
       const existing = state.items.find((item) => item.id === action.payload.id);
+
       if (existing) {
-        return {
-          ...state,
-          items: state.items.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
-        };
+        updatedItems = state.items.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        updatedItems = [...state.items, { ...action.payload, quantity: 1 }];
       }
-      return {
-        ...state,
-        items: [...state.items, { ...action.payload, quantity: 1 }],
-      };
+
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+
+      return { ...state, items: updatedItems };
     }
+
     case "REMOVE_FROM_CART": {
-      return {
-        ...state,
-        items: state.items.filter((item) => item.id !== action.payload),
-      };
+      updatedItems = state.items.filter((item) => item.id !== action.payload);
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+      return { ...state, items: updatedItems };
     }
+
+    case "CLEAR_CART": {
+      localStorage.removeItem("cartItems");
+      return { ...state, items: [] };
+    }
+
     case "TOGGLE_DRAWER":
       return { ...state, isDrawerOpen: !state.isDrawerOpen };
+
     case "CLOSE_DRAWER":
       return { ...state, isDrawerOpen: false };
+
     default:
       return state;
   }

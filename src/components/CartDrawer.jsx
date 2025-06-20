@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { FiX } from "react-icons/fi";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom"; // 👈 Don't forget this!
 
 export default function CartDrawer() {
   const { state, dispatch } = useCart();
@@ -12,7 +13,6 @@ export default function CartDrawer() {
       acc + Number(String(item.price).replace(/[^\d.]/g, "")) * item.quantity,
     0
   );
-  const headerHeight = 72;
 
   return (
     <div
@@ -25,18 +25,6 @@ export default function CartDrawer() {
       ref={drawerRef}
     >
       <div className="bg-white shadow-md rounded-md p-4 flex flex-col animate-slideDown max-h-[80vh] overflow-y-auto">
-        {/* Close Button */}
-        {/* <button
-          className="self-end text-gray-400 hover:text-black text-lg mb-4"
-          onClick={() => dispatch({ type: "CLOSE_DRAWER" })}
-        >
-          <FiX size={22} />
-        </button> */}
-
-        {/* Title */}
-        {/* <h2 className="text-xl font-bold mb-5 text-left">Your Cart</h2> */}
-
-        {/* Items */}
         {items.length === 0 ? (
           <div className="text-gray-500 text-sm">No items added to cart</div>
         ) : (
@@ -104,14 +92,25 @@ export default function CartDrawer() {
               <span>€{total.toFixed(2)}</span>
             </div>
 
-            {/* Buttons */}
-            <div className="space-y-3" style={{ display: "flex", flexDirection: "column" }}>
-              <button className="slide-btn bg-transparent border border-black text-black px-8 py-3 text-lg uppercase tracking-wider font-semibold rounded relative overflow-hidden transition-colors duration-300">
+            {/* Buttons with routing */}
+            <div
+              className="space-y-3"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Link
+                to="/cartpage"
+                className="slide-btn bg-transparent border border-black text-black px-8 py-3 text-lg uppercase tracking-wider font-semibold rounded relative overflow-hidden transition-colors duration-300 text-center"
+              >
                 VIEW CART
-              </button>
-              <button className="slide-btn bg-transparent border border-black text-black px-8 py-3 text-lg uppercase tracking-wider font-semibold rounded relative overflow-hidden transition-colors duration-300">
+              </Link>
+              <Link
+                to="/checkout"
+                className="slide-btn bg-transparent border border-black text-black px-8 py-3 text-lg uppercase tracking-wider font-semibold rounded relative overflow-hidden transition-colors duration-300 text-center"
+              >
                 CHECKOUT
-              </button>
+              </Link>
+
+              {/* Slide Button Styling */}
               <style jsx>{`
                 .slide-btn {
                   position: relative;
@@ -120,8 +119,8 @@ export default function CartDrawer() {
                   background: #343538;
                   z-index: 1;
                   transition: color 0.7s;
-                  margin-left:10%;
-                  margin-right:10%;
+                  margin-left: 10%;
+                  margin-right: 10%;
                 }
                 .slide-btn::before {
                   content: "";

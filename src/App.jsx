@@ -9,6 +9,8 @@ import FooterP from './components/footer/Footer'
 import ProductPage from './components/ProductPage'
 import LoginRegister from './pages/LoginRegister'
 import { ToastProvider } from './context/ToastContext.jsx';
+import CartPage from './pages/CartPage.jsx';
+import CheckoutPage from './pages/CheckoutPage.jsx';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/register" element={<LoginRegister />} />
         <Route path="/account" element={<LoginRegister />} />
+         <Route path="/cartpage" element={<CartPage/>} />
+           <Route path="/checkout" element={<CheckoutPage/>} />
       </Routes>
       <FooterP/>
     </ToastProvider>
