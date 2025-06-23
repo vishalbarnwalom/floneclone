@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiX, FiSearch, FiPlus, FiMinus } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const MobileDrawer = ({ isOpen, setIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(null);
@@ -9,12 +10,41 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
   };
 
   const navItems = [
-    { label: "Home", submenu: ["Home 1", "Home 2"] },
-    { label: "Shop", submenu: ["Men", "Women"] },
-    { label: "Collection", submenu: [] },
-    { label: "Pages", submenu: ["About", "FAQ", "404"] },
-    { label: "Blog", submenu: ["Blog Grid", "Blog Details"] },
-    { label: "Contact Us", submenu: [] },
+    {
+      label: "Home",
+      submenu: [
+        { name: "Home 1", path: "/home1" },
+        { name: "Home 2", path: "/home2" },
+      ],
+    },
+    {
+      label: "Shop",
+      path: "/shop",
+      submenu: [],
+    },
+    {
+      label: "Collection",
+      path: "/collection",
+      submenu: [],
+    },
+    {
+      label: "Pages",
+      submenu: [
+        { name: "Cart", path: "/cartpage" },
+        { name: "Checkout", path: "/checkout" },
+        { name: "Wishlist", path: "/wishlist" },
+        { name: "Compare", path: "/compare" },
+        { name: "My Account", path: "/account" },
+        { name: "Login / Register", path: "/register" },
+        { name: "About Us", path: "/about" },
+        { name: "Contact Us", path: "/contact" },
+      ],
+    },
+    {
+      label: "Contact",
+      path: "/contact",
+      submenu: [],
+    },
   ];
 
   return (
@@ -23,16 +53,13 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
         isOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
-      {/* Transparent Overlay */}
-      <div
-        className="absolute inset-0 bg-transparent"
-        onClick={() => setIsOpen(false)}
-      ></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-transparent" onClick={() => setIsOpen(false)}></div>
 
-      {/* Close Button OUTSIDE drawer */}
+      {/* Close button */}
       <button
         onClick={() => setIsOpen(false)}
-        className="absolute top-5 left-5 z-50 text-white bg-black  p-2 text-xl transition-transform duration-900"
+        className="absolute top-5 left-5 z-50 text-white bg-black p-2 text-xl"
       >
         <FiX />
       </button>
@@ -44,7 +71,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
         }`}
       >
         <div className="p-5 pt-8">
-          {/* Search bar */}
+          {/* Search */}
           <div className="flex items-center bg-gray-100 px-3 py-2 rounded-md w-full">
             <FiSearch className="text-gray-500 mr-2" />
             <input
@@ -56,13 +83,28 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
 
           {/* Menu */}
           <nav className="pt-6 text-[15px] font-medium text-gray-800">
-            {navItems.map(({ label, submenu }) => (
+            {navItems.map(({ label, submenu, path }) => (
               <div key={label} className="mb-2">
                 <div
                   className="flex justify-between items-center py-3 border-b border-gray-100 cursor-pointer"
-                  onClick={() => toggleSubmenu(label)}
+                  onClick={() =>
+                    submenu && submenu.length
+                      ? toggleSubmenu(label)
+                      : setIsOpen(false)
+                  }
                 >
-                  <span className="uppercase">{label}</span>
+                  {submenu?.length > 0 ? (
+                    <span className="uppercase">{label}</span>
+                  ) : (
+                    <Link
+                      to={path}
+                      className="uppercase block w-full"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  )}
+
                   {submenu.length > 0 &&
                     (openMenu === label ? (
                       <FiMinus className="text-gray-500 text-sm" />
@@ -73,14 +115,15 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
 
                 {submenu.length > 0 && openMenu === label && (
                   <div className="ml-4 mt-2 space-y-2 text-sm text-gray-600">
-                    {submenu.map((sub, idx) => (
-                      <a
-                        key={idx}
-                        href={`/${sub.toLowerCase().replace(" ", "-")}`}
+                    {submenu.map(({ name, path }) => (
+                      <Link
+                        key={name}
+                        to={path}
                         className="block hover:text-purple-600"
+                        onClick={() => setIsOpen(false)}
                       >
-                        {sub}
-                      </a>
+                        {name}
+                      </Link>
                     ))}
                   </div>
                 )}

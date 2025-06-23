@@ -8,7 +8,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-gray-200">
+    <header className="sticky top-0 z-50 w-full bg-white  ">
       <div className="container mx-auto px-5 sm:px-8 md:px-10 py-5 flex items-center justify-between">
         
         {/* Logo */}

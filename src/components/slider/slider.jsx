@@ -30,7 +30,7 @@ export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] bg-pink-100 relative overflow-hidden pt-10 sm:pt-16">
+    <div className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] bg-[#f0e0ff] relative overflow-hidden pt-10 sm:pt-16">
       {/* Custom Animation */}
       <style jsx>{`
         @keyframes zoomFadeUp {
