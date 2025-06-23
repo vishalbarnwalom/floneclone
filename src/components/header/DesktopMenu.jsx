@@ -131,6 +131,17 @@ const DesktopMenu = () => {
               About Us
             </span>
           </a>
+           <a
+            href="/contact"
+            className="group/item block px-5 py-2 text-sm text-black relative pl-6 hover:text-purple-600  transition-all duration-300"
+          >
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-600 text-base opacity-0 group-hover/item:opacity-100 transition-all duration-100">
+              ●
+            </span>
+            <span className="inline-block group-hover/item:translate-x-1 transition-all duration-100">
+              Contact Us
+            </span>
+          </a>
         </div>
       </div>
 

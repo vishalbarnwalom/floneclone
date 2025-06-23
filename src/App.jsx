@@ -11,6 +11,10 @@ import LoginRegister from './pages/LoginRegister'
 import { ToastProvider } from './context/ToastContext.jsx';
 import CartPage from './pages/CartPage.jsx';
 import CheckoutPage from './pages/CheckoutPage.jsx';
+import Contact from "./pages/ContactUs.jsx";
+import ShopPageWithFilter from "./pages/ShopPage.jsx"
+import BlogFeatured from './components/BlogFeatured.jsx';
+import About from '../src/pages/AboutUs.jsx'
 
 function App() {
   return (
@@ -22,6 +26,8 @@ function App() {
             <Slider/>
             <FeatureBanner/>
             <DailyDeals/>
+            <BlogFeatured/>
+         
           </>
         } />
         <Route path="/product/:id" element={<ProductPage />} />
@@ -29,6 +35,9 @@ function App() {
         <Route path="/account" element={<LoginRegister />} />
          <Route path="/cartpage" element={<CartPage/>} />
            <Route path="/checkout" element={<CheckoutPage/>} />
+           <Route path="/contact" element={<Contact/>} />
+            <Route path="/Shop" element={<ShopPageWithFilter/>} />
+            <Route path="/about" element={<About/>} />
       </Routes>
       <FooterP/>
     </ToastProvider>
