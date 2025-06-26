@@ -1,25 +1,11 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useWishlist } from "../context/WishlistContext";
+import { SlHeart } from "react-icons/sl";
 
 const Wishlist = () => {
-  const wishlistItems = [
-    {
-      id: 1,
-      name: "Stylish T-Shirt",
-      image: "/assets/img/product/product-1.jpg",
-      price: 100,
-      discount: 10,
-      stock: 5
-    },
-    {
-      id: 2,
-      name: "Modern Sneakers",
-      image: "/assets/img/product/product-2.jpg",
-      price: 150,
-      discount: 0,
-      stock: 0
-    }
-  ];
+  const { wishlist, removeFromWishlist } = useWishlist();
+  const navigate = useNavigate();
 
   return (
     <Fragment>
@@ -27,7 +13,7 @@ const Wishlist = () => {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8">Your Wishlist Items</h2>
 
-          {wishlistItems.length > 0 ? (
+          {wishlist.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-200 bg-white">
                 <thead>
@@ -40,7 +26,7 @@ const Wishlist = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {wishlistItems.map((item) => {
+                  {wishlist.map((item) => {
                     const discountedPrice = item.discount
                       ? (item.price * (1 - item.discount / 100)).toFixed(2)
                       : null;
@@ -53,8 +39,8 @@ const Wishlist = () => {
                         <td className="p-4">
                           <Link to={`/product/${item.id}`}>
                             <img
-                              src={item.image}
-                              alt={item.name}
+                              src={item.image1 || item.image || item.imageUrl}
+                              alt={item.name || item.title}
                               className="w-16 h-16 object-cover rounded"
                             />
                           </Link>
@@ -64,14 +50,14 @@ const Wishlist = () => {
                             to={`/product/${item.id}`}
                             className="hover:underline font-medium"
                           >
-                            {item.name}
+                            {item.name || item.title}
                           </Link>
                         </td>
                         <td className="p-4">
                           {discountedPrice ? (
                             <>
                               <span className="line-through text-gray-400 mr-2">
-                                ${item.price.toFixed(2)}
+                                ${item.price?.toFixed ? item.price.toFixed(2) : item.price}
                               </span>
                               <span className="text-green-600 font-semibold">
                                 ${discountedPrice}
@@ -79,7 +65,7 @@ const Wishlist = () => {
                             </>
                           ) : (
                             <span className="text-gray-700 font-medium">
-                              ${item.price.toFixed(2)}
+                              ${item.price?.toFixed ? item.price.toFixed(2) : item.price}
                             </span>
                           )}
                         </td>
@@ -89,11 +75,14 @@ const Wishlist = () => {
                               Add to Cart
                             </button>
                           ) : (
-                            <span className="text-red-500">Out of stock</span>
+                            <Link to="/checkout"><span className="text-black-500">Add to cart</span></Link>
                           )}
                         </td>
                         <td className="p-4">
-                          <button className="text-red-600 hover:underline text-sm">
+                          <button
+                            className="text-red-600 hover:underline text-sm"
+                            onClick={() => removeFromWishlist(item.id)}
+                          >
                             Remove
                           </button>
                         </td>
@@ -106,24 +95,29 @@ const Wishlist = () => {
               {/* Footer Actions */}
               <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
                 <Link
-                  to="/shop-grid-standard"
+                  to="/"
                   className="text-sm text-blue-600 hover:underline"
                 >
                   ← Continue Shopping
                 </Link>
-                <button className="text-sm text-red-600 hover:underline">
+                <button
+                  className="text-sm text-red-600 hover:underline"
+                  onClick={() => wishlist.forEach(item => removeFromWishlist(item.id))}
+                >
                   Clear Wishlist
                 </button>
               </div>
             </div>
           ) : (
-            <div className="text-center py-20">
-              <div className="text-4xl mb-4">❤️</div>
+            <div className="text-center py-20 flex flex-col items-center">
+              <div className="text-8xl mb-4 flex justify-center items-center">
+                <SlHeart />
+              </div>
               <h3 className="text-xl font-semibold mb-2">
                 No items found in wishlist
               </h3>
               <Link
-                to="/shop-grid-standard"
+                to="/"
                 className="text-blue-600 hover:underline text-sm"
               >
                 Add Items

@@ -30,3 +30,139 @@
     "vite": "^6.3.5"
   }
 }
+
+
+
+
+{% liquid
+  assign max_items = section.settings.max_products
+
+  if section.settings.collection != blank and shop.products_count != 0
+    assign section_products = section.settings.collection.products
+  endif
+
+  case section.settings.layout_type
+    when 'grid'
+      assign classes = 'resource-list--grid'
+      capture styles
+        echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
+        echo '--resource-list-row-gap-desktop: ' | append: section.settings.rows_gap | append: 'px;'
+        echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', 1fr);'
+        echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', 1fr);'
+      endcapture
+    when 'carousel'
+      assign classes = 'resource-list__carousel'
+      capture styles
+        echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
+        echo '--column-count: ' | append: section.settings.columns | append: ';'
+        echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
+      endcapture
+  endcase
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    section-resource-list
+    spacing-style
+    gap-style
+  "
+  style="
+    --column-count-mobile: {{ section.settings.mobile_columns }};
+    {% render 'spacing-style', settings: section.settings %}
+    {% render 'gap-style', value: section.settings.gap %}
+    {{ styles }}
+  "
+>
+  {% assign variant_cards = '' %}
+  {% for product in section_products %}
+    {% for variant in product.variants %}
+     {% capture card %}
+  <div class="resource-list__item">
+    <div class="card-wrapper">
+      <a href="{{ product.url }}?variant={{ variant.id }}" class="card card--product">
+        <div class="card__media">
+          <img
+            src="{{ variant.featured_image | default: product.featured_image | img_url: '400x' }}"
+            alt="{{ product.title }}"
+            class="motion-reduce w-full"
+            loading="lazy"
+          />
+        </div>
+        <div class="card__content">
+          <div class="card__information">
+           <p class="card__heading text-base font-semibold leading-tight">
+  {{ product.title }}
+  {% assign variant_label = '' %}
+  {% if variant.option1 %}{% assign variant_label = variant.option1 %}{% endif %}
+  {% if variant.option2 %}{% assign variant_label = variant_label | append: ' / ' | append: variant.option2 %}{% endif %}
+  {% if variant.option3 %}{% assign variant_label = variant_label | append: ' / ' | append: variant.option3 %}{% endif %}
+  {% if variant_label != '' %}
+    / {{ variant_label }}
+  {% endif %}
+</p>
+
+          
+            <div class="price price--end">
+              <span class="price-item">{{ variant.price | money }}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!--@list/split-->
+{% endcapture %}
+
+      {% assign variant_cards = variant_cards | append: card %}
+    {% endfor %}
+  {% endfor %}
+
+  {% assign list_items_array = variant_cards | strip | split: '<!--@list/split-->' %}
+  {% assign max_items = list_items_array.size %}
+
+  <div
+    class="
+      resource-list
+      {{ classes }}
+    "
+    style="{{ styles }}"
+  >
+    {% case section.settings.layout_type %}
+      {% when 'grid' %}
+        {{ variant_cards }}
+      {% when 'carousel' %}
+        {% render 'resource-list-carousel',
+          ref: 'resourceListCarousel',
+          slides: list_items_array,
+          slide_count: max_items,
+          settings: section.settings
+        %}
+    {% endcase %}
+  </div>
+
+  {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
+    {% assign mobile_carousel_gap = section.settings.columns_gap %}
+    <div
+      class="
+        resource-list
+        hidden--desktop
+        force-full-width
+      "
+      style="
+        --resource-list-column-gap-desktop: {{ mobile_carousel_gap }}px;
+        --column-count: {{ section.settings.columns }};
+      "
+    >
+      {% render 'resource-list-carousel',
+        ref: 'resourceListCarouselMobile',
+        slides: list_items_array,
+        slide_count: max_items,
+        settings: section.settings
+      %}
+    </div>
+  {% endif %}
+</div>

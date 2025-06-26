@@ -9,12 +9,17 @@ import {
 } from "react-icons/fi";
 import SearchBar from "./SearchBar";
 import { useCart } from "../../context/CartContext";
+import { useWishlist } from '../../context/WishlistContext';
 import CartDrawer from "../CartDrawer";
+import { useNavigate } from "react-router-dom";
 
 const HeaderIcons = ({ setMenuOpen }) => {
   const { state, dispatch } = useCart();
+  const { wishlist } = useWishlist();
   const cartCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
+  const wishlistCount = wishlist.length;
   const [showSearch, setShowSearch] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="flex items-center space-x-4 text-gray-700 text-xl relative">
@@ -91,14 +96,20 @@ const HeaderIcons = ({ setMenuOpen }) => {
         </div>
       </div>
       {/* Shuffle + Wishlist */}
-      {[FiShuffle, FiHeart].map((Icon, index) => (
-        <div className="relative" key={index}>
-          <Icon className="cursor-pointer" />
+      <div className="relative">
+        <FiShuffle className="cursor-pointer" />
+        <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+          0
+        </span>
+      </div>
+      <div className="relative">
+        <FiHeart className="cursor-pointer" onClick={() => navigate('/wishlist')} />
+        {wishlistCount > 0 && (
           <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
-            0
+            {wishlistCount}
           </span>
-        </div>
-      ))}
+        )}
+      </div>
       {/* Cart Icon */}
       <div className="relative">
         <FiShoppingCart

@@ -15,6 +15,7 @@ import Contact from "./pages/ContactUs.jsx";
 import ShopPageWithFilter from "./pages/ShopPage.jsx"
 import BlogFeatured from './components/BlogFeatured.jsx';
 import About from '../src/pages/AboutUs.jsx'
+import Wishlist from './pages/WishlistPage.jsx';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
            <Route path="/contact" element={<Contact/>} />
             <Route path="/Shop" element={<ShopPageWithFilter/>} />
             <Route path="/about" element={<About/>} />
+             <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
       <FooterP/>
     </ToastProvider>

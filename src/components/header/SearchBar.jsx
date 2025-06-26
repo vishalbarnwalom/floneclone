@@ -5,7 +5,6 @@ export default function SearchBar({ autoFocusBar }) {
   const [query, setQuery] = useState("");
   const inputRef = useRef(null);
 
-  // Autofocus input
   useEffect(() => {
     if (autoFocusBar && inputRef.current) {
       inputRef.current.focus();

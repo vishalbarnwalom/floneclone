@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import { useWishlist } from '../context/WishlistContext';
 import { FaHeart, FaEye } from "react-icons/fa";
 import ProductModal from "./ProductModal";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(false); 
+
+
+
+  
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const isWishlisted = wishlist.some((item) => item.id === product.id);
 
   return (
     <>
@@ -58,10 +65,16 @@ export default function ProductCard({ product }) {
           >
             {/* Button 1 - Wishlist */}
             <button
-              className={`w-1/5 h-12 flex items-center justify-center bg-[#a749ff] text-white hover:bg-black transition-all duration-500 ${
+              className={`w-1/5 h-12 flex items-center justify-center ${isWishlisted ? 'bg-red-900' : 'bg-[#a749ff]'}
+               text-white hover:bg-black transition-all duration-300 ${
                 hovered ? "translate-y-0 opacity-100 delay-0" : "translate-y-8 opacity-0 delay-0"
               }`}
               style={{ transitionProperty: "all", transitionDelay: hovered ? "0ms" : "0ms" }}
+              onClick={(e) => {
+                e.stopPropagation();
+                isWishlisted ? removeFromWishlist(product.id) : addToWishlist(product);
+              }}
+              aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
             >
               <FaHeart size={16} />
             </button>
